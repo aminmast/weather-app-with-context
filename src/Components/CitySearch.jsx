@@ -1,13 +1,15 @@
 import { useState } from "react";
 import "./styles/style.-weather-card.css";
 import { FaSearchLocation } from "react-icons/fa";
+import { useWeatherActions } from "./Context/WeatherProvider";
 
-const CitySearch = (props) => {
+const CitySearch = () => {
+  const { onSearchSubmit } = useWeatherActions();
   const [searchInputValue, setSearchInputValue] = useState("");
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    props.onSearchSubmit(searchInputValue);
+    onSearchSubmit(searchInputValue);
   };
 
   return (

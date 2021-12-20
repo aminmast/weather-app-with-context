@@ -6,54 +6,49 @@ import {
   FaTemperatureLow,
 } from "react-icons/fa";
 import { ImDroplet } from "react-icons/im";
+import { useWeather, useWeatherActions } from "./Context/WeatherProvider";
+// import { useEffect } from "react";
 
-const WeatherCard = (props) => {
-  const changeToCelsius = (kelvin) => {
-    const celsius = Math.round(kelvin - 273.15);
-    return celsius;
-  };
-  const getWeatherIcons = (iconParameter) => {
-    const icon = `https://openweathermap.org/img/wn/${iconParameter}@2x.png`;
-    return <img src={icon} alt={props.weatherResult.weather[0].description} />;
-  };
+const WeatherCard = () => {
+  const weather = useWeather();
+  // console.log(weather);
+  const { changeToCelsius, getWeatherIcons } = useWeatherActions();
 
-  document.title = "Weather : " + props.weatherResult.name;
+  // useEffect(() => {
+  //   console.log(weather);
+  // }, [weather]);
 
   return (
     <div className="weather-card">
       <div className="part-1">
         <div className="location">
           <MdOutlineLocationOn />
-          <h1>{props.weatherResult.name}</h1>
+          <h1>{weather.name}</h1>
         </div>
         <div className="temp-show">
           <div className="temp-image">
-            {getWeatherIcons(props.weatherResult.weather[0].icon)}
+            {getWeatherIcons(weather.weather[0].icon)}
           </div>
           <div className="temp">
             <FaThermometerThreeQuarters />
-            <h2>{changeToCelsius(props.weatherResult.main.temp)}&deg;C</h2>
+            <h2>{changeToCelsius(weather.main.temp)}&deg;C</h2>
           </div>
-          <h4>{props.weatherResult.weather[0].description}</h4>
+          <h4>{weather.weather[0].description}</h4>
         </div>
       </div>
       <div className="part-2">
         <div className="humidity">
           <ImDroplet />
-          <h2>Humidity : {props.weatherResult.main.humidity} %</h2>
+          <h2>Humidity : {weather.main.humidity} %</h2>
         </div>
         <div className="all-temp">
           <div className="max-temp">
             <FaTemperatureHigh />
-            <p>
-              max-temp : {changeToCelsius(props.weatherResult.main.temp_max)}
-            </p>
+            <p>max-temp : {changeToCelsius(weather.main.temp_max)}</p>
           </div>
           <div className="min-temp">
             <FaTemperatureLow />
-            <p>
-              min-temp : {changeToCelsius(props.weatherResult.main.temp_min)}
-            </p>
+            <p>min-temp : {changeToCelsius(weather.main.temp_min)}</p>
           </div>
         </div>
       </div>
