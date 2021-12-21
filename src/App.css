@@ -22,7 +22,7 @@
   width: 100vw;
   height: 100vh;
   text-align: center;
-  background-image: url(./img/bg-1.jpg);
+  /* background-image: url(./img/bg-1.jpg); */
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
