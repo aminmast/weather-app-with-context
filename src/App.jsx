@@ -3,7 +3,7 @@ import CitySearch from "./Components/CitySearch";
 import WeatherCard from "./Components/WeatherCard";
 import WeatherProvider from "./Components/Context/WeatherProvider";
 
-const App = () => {
+const App = () => {   
   return (
     <WeatherProvider>
       <div className="body">

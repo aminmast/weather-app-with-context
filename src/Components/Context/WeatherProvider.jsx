@@ -15,12 +15,12 @@ const WeatherProvider = ({ children }) => {
         " " +
         Math.round(weather.main.temp - 273.15) +
         " Celsius";
-      console.log(weather);
+      // console.log(weather);
     }
   }, [weather]);
 
   return (
-    <weatherContext.Provider vlaue={weather}>
+    <weatherContext.Provider value={weather}>
       <weatherContextDispath.Provider value={setWeather}>
         {children}
       </weatherContextDispath.Provider>
@@ -29,6 +29,7 @@ const WeatherProvider = ({ children }) => {
 };
 
 export default WeatherProvider;
+
 export const useWeather = () => useContext(weatherContext);
 export const useWeatherActions = () => {
   const weather = useContext(weatherContext);
@@ -39,8 +40,6 @@ export const useWeatherActions = () => {
       `https://api.openweathermap.org/data/2.5/weather?q=${searchInputValue}&appid=ca261c971d5638db9d4d6cbccc1f093d`
     );
     setWeather(respons.data);
-
-    // change title page
   };
 
   const changeToCelsius = (kelvin) => {
