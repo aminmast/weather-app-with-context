@@ -22,6 +22,12 @@ const App = () => {
           <CitySearch />
           <WeatherCard />
         </div>
+        <div className="title">
+          create by :
+          <a href="https://github.com/aminmast/" target="_blank">
+            aminmast
+          </a>
+        </div>
       </div>
     </WeatherProvider>
   );
