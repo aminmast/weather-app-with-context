@@ -24,7 +24,11 @@ const App = () => {
         </div>
         <div className="title">
           create by :
-          <a href="https://github.com/aminmast/" target="_blank">
+          <a
+            href="https://github.com/aminmast/"
+            target="_blank"
+            rel="noreferrer"
+          >
             aminmast
           </a>
         </div>
