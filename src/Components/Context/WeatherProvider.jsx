@@ -36,10 +36,14 @@ export const useWeatherActions = () => {
   const setWeather = useContext(weatherContextDispath);
 
   const onSearchSubmit = async (searchInputValue) => {
-    const respons = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=${searchInputValue}&appid=ca261c971d5638db9d4d6cbccc1f093d`
-    );
-    setWeather(respons.data);
+    try {
+      const respons = await axios.get(
+        `https://api.openweathermap.org/data/2.5/weather?q=${searchInputValue}&appid=ca261c971d5638db9d4d6cbccc1f093d`
+      );
+      setWeather(respons.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const changeToCelsius = (kelvin) => {

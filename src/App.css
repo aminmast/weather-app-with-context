@@ -37,6 +37,7 @@
 
 .body .title {
   color: #fff;
+  text-shadow: 0 0 5px #222;
 }
 
 .glass-card {
